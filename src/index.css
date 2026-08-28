@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5E4C15 #111009;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-bone-100 font-body antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,162,39,0.10), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201,162,39,0.05), transparent);
+  background-attachment: fixed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: #C9A227;
+  color: #0A0908;
+}
+
+.hairline {
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.5), transparent);
+  height: 1px;
+}
+
+.eyebrow {
+  @apply text-[11px] tracking-widest2 uppercase text-gold-500 font-mono;
+}
+
+.gold-text {
+  background: linear-gradient(90deg, #E8C468, #C9A227 40%, #F6EBC4 60%, #C9A227);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply relative inline-flex items-center justify-center gap-2 bg-gold-500 text-ink-950 font-body font-semibold px-7 py-3 rounded-sm tracking-wide transition-all duration-300 hover:bg-gold-300 hover:shadow-gold active:scale-[0.98];
+}
+
+.btn-ghost {
+  @apply relative inline-flex items-center justify-center gap-2 border border-gold-500/40 text-bone-100 font-body font-medium px-7 py-3 rounded-sm tracking-wide transition-all duration-300 hover:border-gold-300 hover:bg-gold-500/5 active:scale-[0.98];
+}
+
+.card {
+  @apply bg-ink-800/80 border border-gold-800/30 backdrop-blur-sm rounded-sm;
+}
+
+.input-field {
+  @apply w-full bg-ink-900 border border-bone-700/40 rounded-sm px-4 py-3 text-bone-100 placeholder:text-bone-700 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/40 transition-colors;
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.in-view {
+  animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+}
